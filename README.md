@@ -19,3 +19,17 @@ secara default dia akan jalan secara lokal di 127.0.0.1 dengan port 8000 Output 
 
 <img src="images/ML_API_ODP_1.jpg">
 <img src="images/ML_API_ODP_2.jpg">
+
+## Mencoba Prediksi Image FastAPI
+Tampilan Awal FastAPI
+
+<img src="images/ML_API_ODP_3.jpg">
+
+1. [/api/predict](##predict-image)
+2. [/predict/flag_image](##flag-image)
+
+##predict-image
+untuk mencoba prediksi image mengklik button **Try it out**
+
+<img src="images/ML_API_ODP_4.jpg">
+
