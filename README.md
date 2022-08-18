@@ -9,3 +9,12 @@ pip install pillow
 pip install numpy
 pip install tensorflow
 ```
+
+## Menjalankan API
+untuk menjalankan API cukup mejalankan command berikut di terminal
+```bash
+uvicorn main:app --reload
+```
+secara default dia akan jalan secara lokal di 127.0.0.1 dengan port 8000 Output jika runnning berhasil
+
+<img src=>
