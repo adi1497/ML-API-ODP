@@ -18,3 +18,4 @@ uvicorn main:app --reload
 secara default dia akan jalan secara lokal di 127.0.0.1 dengan port 8000 Output jika runnning berhasil
 
 <img src="images/ML_API_ODP_1.jpg">
+<img src="images/ML_API_ODP_2.jpg">
