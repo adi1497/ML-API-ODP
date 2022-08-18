@@ -25,11 +25,13 @@ Tampilan Awal FastAPI
 
 <img src="images/ML_API_ODP_3.jpg">
 
-1. [/api/predict](##predict-image)
-2. [/predict/flag_image](##flag-image)
+1. [/api/predict](#predict-image)
+2. [/predict/flag_image](#flag-image)
 
 ## predict-image
 untuk mencoba prediksi image mengklik button **Try it out**
 
 <img src="images/ML_API_ODP_4.jpg">
 
+## flag-image
+untuk menginput gambar ke dalam folder flag dengan input label
