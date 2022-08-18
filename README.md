@@ -28,7 +28,7 @@ Tampilan Awal FastAPI
 1. [/api/predict](##predict-image)
 2. [/predict/flag_image](##flag-image)
 
-##predict-image
+## predict-image
 untuk mencoba prediksi image mengklik button **Try it out**
 
 <img src="images/ML_API_ODP_4.jpg">
