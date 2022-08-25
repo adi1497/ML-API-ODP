@@ -7,7 +7,7 @@ from PIL import Image
 import time
 from gcshelper import save_file
 
-Uncomment This
+# Uncomment This
 from prediction import read_image, preprocess, predict_by_path
 
 app = FastAPI()
