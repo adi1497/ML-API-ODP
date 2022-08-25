@@ -4,8 +4,11 @@ from io import BytesIO
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from PIL import Image
+import time
+from gcshelper import save_file
 
-from prediction import read_image, preprocess, predict_by_path
+# Uncomment This
+# from prediction import read_image, preprocess, predict_by_path
 
 app = FastAPI()
 
@@ -28,10 +31,7 @@ flagImageFolder = 'flagImages'
 if flagImageFolder not in os.listdir():
     os.mkdir(flagImageFolder)
 
-# List folder dalam folder 'flagImages'
-listFlagDir = os.listdir(flagImageFolder)
-
-@app.get('/index')
+@app.get('/')
 async def hello_world():
     return "hello world"
 
@@ -62,11 +62,22 @@ async def flag_image(file: UploadFile = File(...), label: str = Form(default="la
     image = Image.open(BytesIO(await file.read()))
     currentFlagFolder = flagImageFolder+'/'+label+"/"
 
+    # List folder dalam folder 'flagImages'
+    listFlagDir = os.listdir(flagImageFolder)
+    current_time = str(int(time.time())) 
     if label not in listFlagDir:
         os.mkdir(currentFlagFolder)   
 
-    count = len(os.listdir(currentFlagFolder))+1
-    image.save(currentFlagFolder + str(count) + '.jpg')
+    filename = file.filename.split('.')
+    ext = filename[len(filename)-1]
+    local_file_path = './flagImages/'+label+'/'+current_time+'.'+ext
+    local_filename = current_time+'.'+ext
+    # count = len(os.listdir(currentFlagFolder))+1
+    image.save(currentFlagFolder + current_time + '.'+ext)
+    # Upload GCS
+    save_file(local_file_path, local_filename, label.lower())
+    # End Upload GCS
+    os.remove(local_file_path)
 
 if __name__ == "__main__":
     uvicorn.run(app, port=8080, host='0.0.0.0')
